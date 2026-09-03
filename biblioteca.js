@@ -57,7 +57,7 @@ function mostrarDisponibilidad(idLibro) {
 
 function prestarLibro(idLibro, nombreUsuario) {
     const resultado =
-        bibliotecaService.rentarLibro(idLibro, nombreUsuario);
+        bibliotecaService.prestarLibro(idLibro, nombreUsuario);
 
     console.log(resultado.mensaje);
 }
