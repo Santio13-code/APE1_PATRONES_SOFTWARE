@@ -11,21 +11,18 @@ class BibliotecaService {
 
         if (!libro) {
             return {
-                exito: false,
                 mensaje: "Libro no encontrado"
             };
         }
 
         if (!nombreUsuario) {
             return {
-                exito: false,
                 mensaje: "Debe ingresar el nombre del usuario"
             };
         }
 
         if (libro.estado === "P") {
             return {
-                exito: false,
                 mensaje: "No se puede prestar el libro porque ya está prestado"
             };
         }
@@ -34,7 +31,6 @@ class BibliotecaService {
         libro.usuario = nombreUsuario;
 
         return {
-            exito: true,
             mensaje: `El libro ${libro.titulo} fue prestado correctamente a ${nombreUsuario}`
         };
     }
@@ -44,14 +40,12 @@ class BibliotecaService {
 
         if (!libro) {
             return {
-                exito: false,
                 mensaje: "Libro no encontrado"
             };
         }
 
         if (libro.estado === "D") {
             return {
-                exito: false,
                 mensaje: "El libro no puede devolverse porque ya está disponible"
             };
         }
@@ -63,7 +57,6 @@ class BibliotecaService {
         libro.usuario = "";
 
         return {
-            exito: true,
             mensaje
         };
     }
