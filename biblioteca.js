@@ -1,7 +1,7 @@
 const libroRepository = require('./repositories/LibroRepository.js');
 const bibliotecaService = require('./services/BibliotecaService.js');
 
-// FUNCIONES DE PRESENTACIÓN
+
 
 function listarLibros() {
     console.log("---------- BIBLIOTECA ----------");
@@ -42,15 +42,17 @@ function mostrarDisponibilidad(idLibro) {
 
     if (!libro) {
         console.log("Libro no encontrado");
-    } else if (libro.estado === "D") {
-        console.log(
-            `El libro ${libro.titulo} está disponible`
-        );
-    } else {
-        console.log(
-            `El libro ${libro.titulo} está prestado a ${libro.usuario}`
-        );
+        return;
     }
+
+    if (libro.estado === "D") {
+        console.log(`El libro ${libro.titulo} está disponible`);
+        return;
+    }
+
+    console.log(
+        `El libro ${libro.titulo} está prestado a ${libro.usuario}`
+    );
 }
 
 function prestarLibro(idLibro, nombreUsuario) {
@@ -67,7 +69,7 @@ function devolverLibro(idLibro) {
     console.log(resultado.mensaje);
 }
 
-// PRUEBAS MANUALES
+
 
 listarLibros();
 
