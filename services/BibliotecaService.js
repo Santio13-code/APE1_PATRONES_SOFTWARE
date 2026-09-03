@@ -2,8 +2,12 @@ const libroRepository = require('../repositories/LibroRepository.js');
 
 class BibliotecaService {
 
+    buscarLibro(idLibro) {
+        return libroRepository.buscarPorId(idLibro);
+    }
+
     rentarLibro(idLibro, nombreUsuario) {
-        const libro = libroRepository.buscarPorId(idLibro);
+        const libro = this.buscarLibro(idLibro);
 
         if (!libro) {
             return {
@@ -36,7 +40,7 @@ class BibliotecaService {
     }
 
     devolverLibro(idLibro) {
-        const libro = libroRepository.buscarPorId(idLibro);
+        const libro = this.buscarLibro(idLibro);
 
         if (!libro) {
             return {
