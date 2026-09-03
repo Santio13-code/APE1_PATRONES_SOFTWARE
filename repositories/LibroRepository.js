@@ -1,19 +1,28 @@
 const { libros } = require('../models/Libro.js');
 
 class LibroRepository {
+
     obtenerTodos() {
         return libros;
     }
 
-    buscarPorId(id) {
-        return libros.find(libro => libro.id === id);
+    buscarPorId(idLibro) {
+        return libros.find(
+            libro => libro.id === idLibro
+        );
     }
 
-    buscarPorCriterio(criterio) {
-        const termino = criterio.toLowerCase();
-        return libros.filter(libro => 
-            libro.titulo.toLowerCase().includes(termino) || 
-            libro.autor.toLowerCase().includes(termino)
+    buscarPorCriterio(criterioBusqueda) {
+        const terminoBusqueda =
+            criterioBusqueda.toLowerCase();
+
+        return libros.filter(libro =>
+            libro.titulo
+                .toLowerCase()
+                .includes(terminoBusqueda) ||
+            libro.autor
+                .toLowerCase()
+                .includes(terminoBusqueda)
         );
     }
 }
