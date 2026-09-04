@@ -35,7 +35,7 @@ No se requieren dependencias externas para ejecutar las pruebas, ya que se utili
 Clonar el repositorio:
 
 ```bash
-git clone <URL_DEL_REPOSITORIO>
+git clone https://github.com/Santio13-code/APE1_PATRONES_SOFTWARE.git
 ```
 
 Ingresar al directorio del proyecto:
